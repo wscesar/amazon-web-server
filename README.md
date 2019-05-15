@@ -1,10 +1,7 @@
 # Configurar Servidor Web na Amazon
 
-## Configure Web Server
-
-
 ----------------- apache config start -----------------
--------------------------------------------------------
+
 
 sudo mkdir -p /var/www/iocomunica.com/public_html
 
