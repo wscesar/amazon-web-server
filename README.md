@@ -1,6 +1,6 @@
-#Configurar Servidor Web na Amazon
+# Configurar Servidor Web na Amazon
 
-##Configure Web Server
+## Configure Web Server
 
 
 ----------------- apache config start -----------------
