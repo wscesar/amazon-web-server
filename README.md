@@ -1,6 +1,6 @@
 # Configurar Servidor Web na Amazon
 
-# Apache Configuration
+## Apache Configuration
 
 sudo mkdir -p /var/www/iocomunica.com/public_html
 
@@ -11,32 +11,26 @@ sudo chown -R ftpuser:publishers /var/www/emkt/public_html
 sudo chmod -R 755 /var/www
 
 nano /var/www/iocomunica.com/public_html/index.html
-´<html>´
-´  <head>´
-´    <title>Welcome!</title>´
-´  </head>´
-´  <body>´
-´    <h1>Welcome!</h1>´
-´  </body>´
-´</html>´
+<html>
+  <head>
+    <title>Welcome!</title>
+  </head>
+  <body>
+    <p>Hello World!</p>
+  </body>
+</html>
 
 
-
-sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/iocomunica.com.conf
---OR--
-sudo touch /etc/apache2/sites-available/iocomunica.com.conf
-
-sudo nano /etc/apache2/sites-available/emkt.conf
-
-
+### create domain configuration file
 sudo nano /etc/apache2/sites-available/iocomunica.com.conf
+
 <VirtualHost *:80>
-    ServerAdmin suporte@iocomunica.com
-    ServerName iocomunica.com
-    ServerAlias www.iocomunica.com
-    DocumentRoot /var/www/iocomunica.com/public_html
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
+ServerAdmin suporte@iocomunica.com
+ServerName iocomunica.com
+ServerAlias www.iocomunica.com
+DocumentRoot /var/www/iocomunica.com/public_html
+ErrorLog ${APACHE_LOG_DIR}/error.log
+CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 
 
@@ -48,7 +42,7 @@ sudo service apache2 restart
 
 
 
-# Database Configuration
+## Database Configuration
 
 sudo mysql -p
 
@@ -69,24 +63,14 @@ GRANT ALL PRIVILEGES ON database_name.table_name TO 'database_user'@'localhost';
 ### exibir privilegios
 SHOW GRANTS FOR 'database_user'@'localhost';
 
-
 ### revogar privilegios
 REVOKE ALL PRIVILEGES ON database_name.* TO 'database_user'@'localhost';
-
 
 #### exluir usuario
 DROP USER 'user'@'localhost'
 
 
-
-
-
-
-
-# FTP Configuration
-
-
-
+## FTP Configuration
 
 sudo apt install vsftpd
 
