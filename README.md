@@ -89,8 +89,8 @@ DROP USER 'user'@'localhost'
 
 
 
------------------ ftp config start ------------------
------------------------------------------------------
+# ----------------- ftp config start ------------------
+# -----------------------------------------------------
 
 
 
@@ -100,19 +100,19 @@ sudo adduser ftpuser
 
 sudo usermod ftpuser -d /var/www/iocomunica.com 
 
-# create and append a Group for ftp and apache users
+## create and append a Group for ftp and apache users
 groupadd publishers 
 usermod -a -G publishers ftpuser
 usermod -a -G publishers www-data
 
-# display groups for user
+## display groups for user
 groups ftpuser
 groups www-data
 
 sudo chown nobody:nogroup /var/www/
 
 
-### chmod 2775 /var/www ###
+### chmod 2775 /var/www
 
 sudo find /var/www -type d -exec chmod 2775 {} +
 sudo find /var/www -type f -exec chmod 0664 {} +
