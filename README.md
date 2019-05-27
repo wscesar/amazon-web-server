@@ -11,14 +11,9 @@ sudo chown -R ftpuser:publishers /var/www/emkt/public_html
 sudo chmod -R 755 /var/www
 
 nano /var/www/iocomunica.com/public_html/index.html
-<html>
-  <head>
-    <title>Welcome!</title>
-  </head>
-  <body>
-    <p>Hello World!</p>
-  </body>
-</html>
+write "Hello World!" save and exit
+  
+
 
 
 ### create domain configuration file
@@ -79,6 +74,8 @@ sudo adduser ftpuser
 sudo usermod ftpuser -d /var/www/iocomunica.com 
 
 ## create and append a Group for ftp and apache users
+### create and append a Group for ftp and apache users
+#### create and append a Group for ftp and apache users
 groupadd publishers 
 usermod -a -G publishers ftpuser
 usermod -a -G publishers www-data
