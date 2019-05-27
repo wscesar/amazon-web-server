@@ -2,37 +2,43 @@
 
 ## Apache Configuration
 
+#### create website root directory
 sudo mkdir -p /var/www/iocomunica.com/public_html
 
+#### change owner to current user
 sudo chown -R $USER:$USER /var/www/iocomunica.com/public_html
 
+#### or change owner to a specifc ftp user
 sudo chown -R ftpuser:publishers /var/www/emkt/public_html
 
+#### change to files permission
 sudo chmod -R 755 /var/www
 
+#### create a index file on the root directory
 nano /var/www/iocomunica.com/public_html/index.html
 write "Hello World!" save and exit
   
-
-
-
-### create domain configuration file
+#### create domain configuration file
 sudo nano /etc/apache2/sites-available/iocomunica.com.conf
 
+--- DOMAIN-NAME.COM.CONF START ---
+
 <VirtualHost *:80>
-ServerAdmin suporte@iocomunica.com
-ServerName iocomunica.com
-ServerAlias www.iocomunica.com
-DocumentRoot /var/www/iocomunica.com/public_html
-ErrorLog ${APACHE_LOG_DIR}/error.log
-CustomLog ${APACHE_LOG_DIR}/access.log combined
+  ServerAdmin suporte@iocomunica.com
+  ServerName iocomunica.com
+  ServerAlias www.iocomunica.com
+  DocumentRoot /var/www/iocomunica.com/public_html
+  ErrorLog ${APACHE_LOG_DIR}/error.log
+  CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 
+--- DOMAIN-NAME.COM.CONF END ---
 
-sudo cp /etc/apache2/sites-available/iocomunica.com.conf /etc/apache2/sites-available/test.com.conf
 
+#### enable website 
 sudo a2ensite iocomunica.com.conf
 
+#### restart apache
 sudo service apache2 restart
 
 
@@ -45,20 +51,20 @@ CREATE DATABASE db_name
 
 CREATE USER 'username'@'*' IDENTIFIED BY 'password';
 
-### conceder privilegio administrativo em todas tabelas de db_name
+#### conceder privilegio administrativo em todas tabelas de db_name
 GRANT ALL PRIVILEGES ON db_name.* TO 'username'@'*';
 
-### conceder privilegio administrativo em todas tabelas de todos dbs a partit do ip 123.123.123.123
+#### conceder privilegio administrativo em todas tabelas de todos dbs a partit do ip 123.123.123.123
 GRANT ALL PRIVILEGES ON *.* TO 'database_user'@'123.123.123.123';
 
-### outros exemplos
+#### outros exemplos
 GRANT SELECT, INSERT, DELETE ON database_name.* TO database_user@'localhost';
 GRANT ALL PRIVILEGES ON database_name.table_name TO 'database_user'@'localhost';
 
-### exibir privilegios
+#### exibir privilegios
 SHOW GRANTS FOR 'database_user'@'localhost';
 
-### revogar privilegios
+#### revogar privilegios
 REVOKE ALL PRIVILEGES ON database_name.* TO 'database_user'@'localhost';
 
 #### exluir usuario
@@ -73,27 +79,28 @@ sudo adduser ftpuser
 
 sudo usermod ftpuser -d /var/www/iocomunica.com 
 
-## create and append a Group for ftp and apache users
-### create and append a Group for ftp and apache users
+
 #### create and append a Group for ftp and apache users
 groupadd publishers 
 usermod -a -G publishers ftpuser
 usermod -a -G publishers www-data
 
-## display groups for user
+#### display groups for user
 groups ftpuser
 groups www-data
 
+
+
+#### grant the propers permission to files and folders
 sudo chown nobody:nogroup /var/www/
-
-
-### chmod 2775 /var/www
-
+chmod 2775 /var/www
 sudo find /var/www -type d -exec chmod 2775 {} +
 sudo find /var/www -type f -exec chmod 0664 {} +
 
+
+#### configure ftp server
 sudo nano /.../vstpd.conf
-----
+--- VSTPD.CONF START ---
 listen=NO
 listen_ipv6=YES
 
@@ -135,14 +142,10 @@ tcp_wrappers=YES
 #require_ssl_reuse=NO
 #ssl_ciphers=HIGH
 
-
 force_dot_files=YES
 
 pasv_enable=NO
 #pasv_min_port=40000
 #pasv_max_port=50000
 
-
-
-
-
+--- VSTPD.CONF END ---
