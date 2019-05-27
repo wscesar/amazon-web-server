@@ -5,14 +5,52 @@
 #### create website root directory
 sudo mkdir -p /var/www/iocomunica.com/public_html
 
-#### change owner to current user
-sudo chown -R $USER:$USER /var/www/iocomunica.com/public_html
+### create ftp user
+sudo adduser ftpuser
+
+#### define website root directory as home folder for ftp user
+sudo usermod ftpuser -d /var/www/iocomunica.com
+
+#### create and append a Group for ftp and apache users to grant wordpress to upload files
+groupadd publishers 
+
+usermod -a -G publishers ftpuser
+
+usermod -a -G publishers www-data
+
+#### display groups for user
+groups ftpuser
+
+groups www-data
+
+
+
+#### grant the propers permission to files and folders
+
+sudo chown nobody:nogroup /var/www/
+
+chmod 2775 /var/www
+
+sudo find /var/www -type d -exec chmod 2775 {} +
+
+sudo find /var/www -type f -exec chmod 0664 {} +
+
+
+
+
+
+
+
 
 #### or change owner to a specifc ftp user
 sudo chown -R ftpuser:publishers /var/www/emkt/public_html
 
 #### change to files permission
 sudo chmod -R 755 /var/www
+
+
+
+
 
 #### create a index file on the root directory
 nano /var/www/iocomunica.com/public_html/index.html
@@ -80,11 +118,12 @@ DROP USER 'user'@'localhost'
 ## FTP Configuration
 sudo apt install vsftpd
 
+
+### create ftp user
 sudo adduser ftpuser
 
 #### change home for ftp user
 sudo usermod ftpuser -d /var/www/iocomunica.com 
-
 
 #### create and append a Group for ftp and apache users
 groupadd publishers 
