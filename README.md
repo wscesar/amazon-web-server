@@ -1,7 +1,6 @@
 # Configurar Servidor Web na Amazon
 
------------------ apache config start -----------------
-
+# Apache Configuration
 
 sudo mkdir -p /var/www/iocomunica.com/public_html
 
@@ -49,12 +48,7 @@ sudo service apache2 restart
 
 
 
------------------ apache config end -----------------
------------------------------------------------------
-
-
------------------ mysql config start -----------------
-------------------------------------------------------
+# Database Configuration
 
 sudo mysql -p
 
@@ -89,8 +83,8 @@ DROP USER 'user'@'localhost'
 
 
 
-# ----------------- ftp config start ------------------
-# -----------------------------------------------------
+# FTP Configuration
+
 
 
 
