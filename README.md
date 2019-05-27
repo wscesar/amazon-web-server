@@ -36,6 +36,7 @@ sudo nano /etc/apache2/sites-available/iocomunica.com.conf
   ErrorLog ${APACHE_LOG_DIR}/error.log
   
   CustomLog ${APACHE_LOG_DIR}/access.log combined
+  
 \</VirtualHost>
 
 --- DOMAIN-NAME.COM.CONF END ---
@@ -81,6 +82,7 @@ sudo apt install vsftpd
 
 sudo adduser ftpuser
 
+#### change home for ftp user
 sudo usermod ftpuser -d /var/www/iocomunica.com 
 
 
