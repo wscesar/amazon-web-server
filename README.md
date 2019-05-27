@@ -23,14 +23,14 @@ sudo nano /etc/apache2/sites-available/iocomunica.com.conf
 
 --- DOMAIN-NAME.COM.CONF START ---
 
-<VirtualHost *:80>
-  ServerAdmin suporte@iocomunica.com
-  ServerName iocomunica.com
-  ServerAlias www.iocomunica.com
-  DocumentRoot /var/www/iocomunica.com/public_html
-  ErrorLog ${APACHE_LOG_DIR}/error.log
-  CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>
+\<VirtualHost *:80>
+ServerAdmin suporte@iocomunica.com \n
+ServerName iocomunica.com \n
+ServerAlias www.iocomunica.com \n
+DocumentRoot /var/www/iocomunica.com/public_html \n
+ErrorLog ${APACHE_LOG_DIR}/error.log \n
+CustomLog ${APACHE_LOG_DIR}/access.log combined \n
+\</VirtualHost>
 
 --- DOMAIN-NAME.COM.CONF END ---
 
