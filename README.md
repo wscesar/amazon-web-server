@@ -92,14 +92,15 @@ groups www-data
 
 
 #### grant the propers permission to files and folders
-sudo chown nobody:nogroup /var/www/
-chmod 2775 /var/www
-sudo find /var/www -type d -exec chmod 2775 {} +
-sudo find /var/www -type f -exec chmod 0664 {} +
+sudo chown nobody:nogroup /var/www/ <br>
+chmod 2775 /var/www <br>
+sudo find /var/www -type d -exec chmod 2775 {} + <br>
+sudo find /var/www -type f -exec chmod 0664 {} + <br>
 
 
 #### configure ftp server
-sudo nano /.../vstpd.conf
+sudo nano /.../vstpd.conf <br>
+
 --- VSTPD.CONF START ---
 listen=NO
 listen_ipv6=YES
