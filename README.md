@@ -35,20 +35,13 @@ sudo nano /etc/apache2/sites-available/meusite.com.conf
 
 --- DOMAIN-NAME.COM.CONF START ---
 
-\<VirtualHost *:80>
-  
-  ServerAdmin email@meusite.com
-  
-  ServerName meusite.com
-  
-  ServerAlias www.meusite.com
-  
-  DocumentRoot /var/www/meusite.com/public_html
-  
-  ErrorLog ${APACHE_LOG_DIR}/error.log
-  
-  CustomLog ${APACHE_LOG_DIR}/access.log combined
-  
+\<VirtualHost *:80> <br>
+  ServerAdmin email@meusite.com <br>
+  ServerName meusite.com <br>
+  ServerAlias www.meusite.com <br>
+  DocumentRoot /var/www/meusite.com/public_html <br>
+  ErrorLog ${APACHE_LOG_DIR}/error.log <br>
+  CustomLog ${APACHE_LOG_DIR}/access.log combined <br>
 \</VirtualHost>
 
 --- DOMAIN-NAME.COM.CONF END ---
