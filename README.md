@@ -2,13 +2,13 @@
 
 ## Apache Configuration
 
-#### create website root directory
+#### criar diretorio raiz do site
 sudo mkdir -p /var/www/iocomunica.com/public_html
 
-### create ftp user
+### criar usuario ftp
 sudo adduser ftpuser
 
-#### define website root directory as home folder for ftp user
+#### definir diretorio do site como home do usuario
 sudo usermod ftpuser -d /var/www/iocomunica.com
 
 #### create and append a Group for ftp and apache users to grant wordpress to upload files
@@ -18,11 +18,10 @@ usermod -a -G publishers ftpuser
 
 usermod -a -G publishers www-data
 
-#### display groups for user
+#### exibir grupos usuarios
 groups ftpuser
 
 groups www-data
-
 
 
 #### grant the propers permission to files and folders
