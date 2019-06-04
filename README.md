@@ -56,14 +56,10 @@ sudo a2ensite meusite.com.conf && sudo service apache2 restart
 https://linuxize.com/post/how-to-create-mysql-user-accounts-and-grant-privileges/
 
 sudo mysql -p
-
-CREATE DATABASE db_name
-
-CREATE USER 'user'@'%' IDENTIFIED BY 'password';
-
-GRANT ALL PRIVILEGES ON db_name.* TO 'user'@'%';
-
-SHOW GRANTS FOR 'user'@'%';
+<br> CREATE DATABASE db_name
+<br> CREATE USER 'user'@'%' IDENTIFIED BY 'password';
+<br> GRANT ALL PRIVILEGES ON db_name.* TO 'user'@'%';
+<br> SHOW GRANTS FOR 'user'@'%';
 
 
 ## FTP Configuration
