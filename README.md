@@ -20,10 +20,10 @@ sudo usermod -a -G publishers www-data
 #### verificar se os grupos foram atribuidos corretamente
 groups ftpuser && groups www-data
 
-#### or change owner to a specifc ftp user
-sudo chown -R ftpuser:publishers /var/www/emkt/public_html
+#### definir usuario ftp e grupo publishers como proprietários do diretório
+sudo chown -R ftpuser:publishers /var/www/meusite.com/
 
-#### grant the propers permission to files and folders
+#### definir permissoes adequadas para arquivos e diretorios
 sudo chown nobody:nogroup /var/www/ <br>
 sudo chmod 2775 /var/www <br>
 sudo find /var/www -type d -exec chmod 2775 {} + <br>
