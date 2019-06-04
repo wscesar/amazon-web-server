@@ -89,30 +89,23 @@ sudo service apache2 restart
 
 
 ## Database Configuration
+https://linuxize.com/post/how-to-create-mysql-user-accounts-and-grant-privileges/
+
 sudo mysql -p
 
 CREATE DATABASE db_name
 
-CREATE USER 'username'@'*' IDENTIFIED BY 'password';
+CREATE USER 'user'@'%' IDENTIFIED BY 'password';
 
-#### conceder privilegio administrativo em todas tabelas de db_name
-GRANT ALL PRIVILEGES ON db_name.* TO 'username'@'*';
+GRANT ALL PRIVILEGES ON db_name.* TO 'user'@'%';
 
-#### conceder privilegio administrativo em todas tabelas de todos dbs a partit do ip 123.123.123.123
-GRANT ALL PRIVILEGES ON *.* TO 'database_user'@'123.123.123.123';
-
-#### outros exemplos
-GRANT SELECT, INSERT, DELETE ON database_name.* TO database_user@'localhost';
-GRANT ALL PRIVILEGES ON database_name.table_name TO 'database_user'@'localhost';
-
-#### exibir privilegios
-SHOW GRANTS FOR 'database_user'@'localhost';
+SHOW GRANTS FOR 'user'@'%';
 
 #### revogar privilegios
-REVOKE ALL PRIVILEGES ON database_name.* TO 'database_user'@'localhost';
+REVOKE ALL PRIVILEGES ON db_name.* TO 'user'@'%';
 
 #### exluir usuario
-DROP USER 'user'@'localhost'
+DROP USER 'user'@'%';
 
 
 ## FTP Configuration
@@ -154,6 +147,7 @@ sudo find /var/www -type f -exec chmod 0664 {} + <br>
 sudo nano /.../vstpd.conf <br>
 
 --- VSTPD.CONF START ---
+
 listen=NO
 
 listen_ipv6=YES
