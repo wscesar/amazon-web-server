@@ -12,38 +12,28 @@ sudo adduser ftpuser
 #### definir diretorio do site como home do usuario
 sudo usermod ftpuser -d /var/www/iocomunica.com
 
+#### criar grupo em comum para usuario ftp e usuario apache
+#### para que o wordpress possa fazer uploads para pasta do usuario
+
+sudo groupadd publishers && <br>
+sudo usermod -a -G publishers ftpuser && <br>
+sudo usermod -a -G publishers www-data
+
+#### verificar se os grupos foram atribuidos corretamente
+groups ftpuser && groups www-data
+
+#### or change owner to a specifc ftp user
+sudo chown -R ftpuser:publishers /var/www/emkt/public_html
 
 #### grant the propers permission to files and folders
 
 sudo chown nobody:nogroup /var/www/
 
-/* chmod 2775 /var/www */
+sudo chmod 2775 /var/www
 
 sudo find /var/www -type d -exec chmod 2775 {} +
 
 sudo find /var/www -type f -exec chmod 0664 {} +
-
-
-
-
-
-#### create and append a Group for ftp and apache users to grant wordpress to upload files
-groupadd publishers 
-
-usermod -a -G publishers ftpuser
-
-usermod -a -G publishers www-data
-
-#### exibir grupos usuarios
-groups ftpuser
-
-groups www-data
-
-#### or change owner to a specifc ftp user
-sudo chown -R ftpuser:publishers /var/www/emkt/public_html
-
-#### change files permission
-sudo chmod -R 755 /var/www
 
 
 ## Apache Configuration
