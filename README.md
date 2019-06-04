@@ -1,11 +1,9 @@
 # Configurar Servidor Web na Amazon
 
-## Apache Configuration
-
 #### criar diretorio raiz do site
 sudo mkdir -p /var/www/iocomunica.com/public_html
 
-### criar usuario ftp
+#### criar usuario ftp
 sudo adduser ftpuser
 
 #### definir diretorio do site como home do usuario
@@ -47,13 +45,11 @@ sudo chown -R ftpuser:publishers /var/www/emkt/public_html
 #### change to files permission
 sudo chmod -R 755 /var/www
 
-
-
-
-
 #### create a index file on the root directory
 nano /var/www/iocomunica.com/public_html/index.html
 write "Hello World!" save and exit
+
+## Apache Configuration
   
 #### create domain configuration file
 sudo nano /etc/apache2/sites-available/iocomunica.com.conf
