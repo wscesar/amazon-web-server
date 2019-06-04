@@ -1,16 +1,16 @@
 # Configurar Servidor Web na Amazon
 
 #### criar diretorio raiz do site
-sudo mkdir -p /var/www/iocomunica.com/public_html
+sudo mkdir -p /var/www/meusite.com/public_html
 
 #### criar arquivo index na raiz do site
-sudo nano /var/www/iocomunica.com/public_html/index.html
+sudo nano /var/www/meusite.com/public_html/index.html
 
 #### criar usuario ftp
 sudo adduser ftpuser
 
 #### definir diretorio do site como home do usuario
-sudo usermod ftpuser -d /var/www/iocomunica.com
+sudo usermod ftpuser -d /var/www/meusite.com
 
 #### criar grupo em comum para o apache e usuario ftp para que o wordpress possa fazer uploads na pasta do usuario
 sudo groupadd publishers <br>
@@ -31,19 +31,19 @@ sudo find /var/www -type f -exec chmod 0664 {} +
 
 
 ## Apache Configuration
-sudo nano /etc/apache2/sites-available/iocomunica.com.conf
+sudo nano /etc/apache2/sites-available/meusite.com.conf
 
 --- DOMAIN-NAME.COM.CONF START ---
 
 \<VirtualHost *:80>
   
-  ServerAdmin suporte@iocomunica.com
+  ServerAdmin email@meusite.com
   
-  ServerName iocomunica.com
+  ServerName meusite.com
   
-  ServerAlias www.iocomunica.com
+  ServerAlias www.meusite.com
   
-  DocumentRoot /var/www/iocomunica.com/public_html
+  DocumentRoot /var/www/meusite.com/public_html
   
   ErrorLog ${APACHE_LOG_DIR}/error.log
   
@@ -55,7 +55,7 @@ sudo nano /etc/apache2/sites-available/iocomunica.com.conf
 
 
 #### habilitar website 
-sudo a2ensite iocomunica.com.conf
+sudo a2ensite meusite.com.conf
 
 #### reiniciar apache
 sudo service apache2 restart
