@@ -47,11 +47,8 @@ sudo nano /etc/apache2/sites-available/meusite.com.conf
 --- Fim do arquivo ---
 
 
-#### habilitar website 
-sudo a2ensite meusite.com.conf
-
-#### reiniciar apache
-sudo service apache2 restart
+#### habilitar website e reiniciar apache
+sudo a2ensite meusite.com.conf && sudo service apache2 restart
 
 
 
