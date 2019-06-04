@@ -33,7 +33,7 @@ sudo find /var/www -type f -exec chmod 0664 {} +
 ## Apache Configuration
 sudo nano /etc/apache2/sites-available/meusite.com.conf
 
---- DOMAIN-NAME.COM.CONF START ---
+--- Inicio do arquivo ---
 
 \<VirtualHost *:80> <br>
   ServerAdmin email@meusite.com <br>
@@ -44,7 +44,7 @@ sudo nano /etc/apache2/sites-available/meusite.com.conf
   CustomLog ${APACHE_LOG_DIR}/access.log combined <br>
 \</VirtualHost>
 
---- DOMAIN-NAME.COM.CONF END ---
+--- Fim do arquivo ---
 
 
 #### habilitar website 
@@ -72,7 +72,7 @@ SHOW GRANTS FOR 'user'@'%';
 ## FTP Configuration
 sudo apt install vsftpd -y && sudo nano /etc/vstpd.conf
 
---- VSTPD.CONF START ---
+--- Inicio do arquivo ---
 
 listen=NO
 
@@ -142,4 +142,4 @@ pasv_enable=NO
 
 #pasv_max_port=50000
 
---- VSTPD.CONF END ---
+--- Fim do arquivo ---
