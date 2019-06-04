@@ -31,8 +31,6 @@ sudo find /var/www -type f -exec chmod 0664 {} +
 
 
 ## Apache Configuration
-  
-#### create domain configuration file
 sudo nano /etc/apache2/sites-available/iocomunica.com.conf
 
 --- DOMAIN-NAME.COM.CONF START ---
@@ -76,12 +74,6 @@ CREATE USER 'user'@'%' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON db_name.* TO 'user'@'%';
 
 SHOW GRANTS FOR 'user'@'%';
-
-#### revogar privilegios
-REVOKE ALL PRIVILEGES ON db_name.* TO 'user'@'%';
-
-#### exluir usuario
-DROP USER 'user'@'%';
 
 
 ## FTP Configuration
