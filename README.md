@@ -59,7 +59,6 @@ sudo mysql -p
 <br> CREATE DATABASE db_name
 <br> CREATE USER 'user'@'%' IDENTIFIED BY 'password';
 <br> GRANT ALL PRIVILEGES ON db_name.* TO 'user'@'%';
-<br> SHOW GRANTS FOR 'user'@'%';
 
 
 ## FTP Configuration
