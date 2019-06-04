@@ -12,11 +12,9 @@ sudo adduser ftpuser
 #### definir diretorio do site como home do usuario
 sudo usermod ftpuser -d /var/www/iocomunica.com
 
-#### criar grupo em comum para usuario ftp e usuario apache
-#### para que o wordpress possa fazer uploads para pasta do usuario
-
-sudo groupadd publishers && <br>
-sudo usermod -a -G publishers ftpuser && <br>
+#### criar grupo em comum para o apache e usuario ftp para que o wordpress possa fazer uploads na pasta do usuario
+sudo groupadd publishers <br>
+sudo usermod -a -G publishers ftpuser <br>
 sudo usermod -a -G publishers www-data
 
 #### verificar se os grupos foram atribuidos corretamente
@@ -26,13 +24,9 @@ groups ftpuser && groups www-data
 sudo chown -R ftpuser:publishers /var/www/emkt/public_html
 
 #### grant the propers permission to files and folders
-
-sudo chown nobody:nogroup /var/www/
-
-sudo chmod 2775 /var/www
-
-sudo find /var/www -type d -exec chmod 2775 {} +
-
+sudo chown nobody:nogroup /var/www/ <br>
+sudo chmod 2775 /var/www <br>
+sudo find /var/www -type d -exec chmod 2775 {} + <br>
 sudo find /var/www -type f -exec chmod 0664 {} +
 
 
@@ -62,10 +56,10 @@ sudo nano /etc/apache2/sites-available/iocomunica.com.conf
 --- DOMAIN-NAME.COM.CONF END ---
 
 
-#### enable website 
+#### habilitar website 
 sudo a2ensite iocomunica.com.conf
 
-#### restart apache
+#### reiniciar apache
 sudo service apache2 restart
 
 
@@ -91,42 +85,7 @@ DROP USER 'user'@'%';
 
 
 ## FTP Configuration
-sudo apt install vsftpd
-
-
-### create ftp user
-sudo adduser ftpuser
-
-#### change home for ftp user
-sudo usermod ftpuser -d /var/www/iocomunica.com 
-
-#### create and append a Group for ftp and apache users
-groupadd publishers 
-
-usermod -a -G publishers ftpuser
-
-usermod -a -G publishers www-data
-
-#### display groups for user
-groups ftpuser
-
-groups www-data
-
-
-
-#### grant the propers permission to files and folders
-
-sudo chown nobody:nogroup /var/www/ <br>
-
-chmod 2775 /var/www <br>
-
-sudo find /var/www -type d -exec chmod 2775 {} + <br>
-
-sudo find /var/www -type f -exec chmod 0664 {} + <br>
-
-
-#### configure ftp server
-sudo nano /.../vstpd.conf <br>
+sudo apt install vsftpd -y && sudo nano /etc/vstpd.conf
 
 --- VSTPD.CONF START ---
 
