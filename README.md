@@ -4,13 +4,28 @@
 sudo mkdir -p /var/www/iocomunica.com/public_html
 
 #### criar arquivo index na raiz do site
-nano /var/www/iocomunica.com/public_html/index.html
+sudo nano /var/www/iocomunica.com/public_html/index.html
 
 #### criar usuario ftp
 sudo adduser ftpuser
 
 #### definir diretorio do site como home do usuario
 sudo usermod ftpuser -d /var/www/iocomunica.com
+
+
+#### grant the propers permission to files and folders
+
+sudo chown nobody:nogroup /var/www/
+
+/* chmod 2775 /var/www */
+
+sudo find /var/www -type d -exec chmod 2775 {} +
+
+sudo find /var/www -type f -exec chmod 0664 {} +
+
+
+
+
 
 #### create and append a Group for ftp and apache users to grant wordpress to upload files
 groupadd publishers 
@@ -24,28 +39,10 @@ groups ftpuser
 
 groups www-data
 
-
-#### grant the propers permission to files and folders
-
-sudo chown nobody:nogroup /var/www/
-
-chmod 2775 /var/www
-
-sudo find /var/www -type d -exec chmod 2775 {} +
-
-sudo find /var/www -type f -exec chmod 0664 {} +
-
-
-
-
-
-
-
-
 #### or change owner to a specifc ftp user
 sudo chown -R ftpuser:publishers /var/www/emkt/public_html
 
-#### change to files permission
+#### change files permission
 sudo chmod -R 755 /var/www
 
 
