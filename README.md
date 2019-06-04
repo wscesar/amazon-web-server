@@ -3,6 +3,9 @@
 #### criar diretorio raiz do site
 sudo mkdir -p /var/www/iocomunica.com/public_html
 
+#### criar arquivo index na raiz do site
+nano /var/www/iocomunica.com/public_html/index.html
+
 #### criar usuario ftp
 sudo adduser ftpuser
 
@@ -45,9 +48,6 @@ sudo chown -R ftpuser:publishers /var/www/emkt/public_html
 #### change to files permission
 sudo chmod -R 755 /var/www
 
-#### create a index file on the root directory
-nano /var/www/iocomunica.com/public_html/index.html
-write "Hello World!" save and exit
 
 ## Apache Configuration
   
